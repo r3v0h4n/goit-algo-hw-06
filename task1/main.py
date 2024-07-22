@@ -1,17 +1,21 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+def get_graph():
+    G = nx.DiGraph()
+
+    # Adding nodes (stations or stops)
+    nodes = ["Station A", "Station B", "Station C", "Station D", "Station E"]
+    G.add_nodes_from(nodes)
+
+    # Adding edges (routes between stations)
+    edges = [("Station A", "Station B"), ("Station B", "Station C"), ("Station C", "Station D"),
+            ("Station D", "Station E"), ("Station E", "Station A"), ("Station B", "Station D")]
+    G.add_edges_from(edges)
+    return G
+
 # Creating a simple example of a transportation network as a directed graph
-G = nx.DiGraph()
-
-# Adding nodes (stations or stops)
-nodes = ["Station A", "Station B", "Station C", "Station D", "Station E"]
-G.add_nodes_from(nodes)
-
-# Adding edges (routes between stations)
-edges = [("Station A", "Station B"), ("Station B", "Station C"), ("Station C", "Station D"),
-         ("Station D", "Station E"), ("Station E", "Station A"), ("Station B", "Station D")]
-G.add_edges_from(edges)
+G = get_graph()
 
 # Visualizing the graph
 plt.figure(figsize=(8, 6))
